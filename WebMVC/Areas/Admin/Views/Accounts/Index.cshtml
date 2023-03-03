@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebLamDep.Models.Account>
+
+@{
+    ViewData["Title"] = "Quản lý Người dùng";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<a class="btn btn-primary" style="border-color:aliceblue!important;margin:4px" asp-action="Create">Create New</a>
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <!-- PAGE CONTENT BEGINS -->
+        <div class="row">
+            <div class="col-xs-12">
+                <table id="simple-table" class="table  table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Username</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Password</th>
+                            <th scope="col">Phone Number</th>
+                            <th scope="col">RoleID</th>
+                            <th scope="col">Active</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if(Model !=null)
+                       {
+                            foreach(var item in Model)
+                            {
+                                <tr>
+                                    <th scope="row">@item.FullName</th>
+                                    <td>@item.Email</td>
+                                    <td>@item.Password</td>
+                                    <td>@item.Phone</td>
+                                    <td>@item.RoleId</td>
+                                    <td>@item.Active</td>
+                                    <td>
+                                        <a class="btn btn-xs btn-success" asp-area="Admin" asp-controller="Accounts" asp-action="Details" asp-route-id="@item.AccountId"> <i class="ace-icon fa fa-info-circle bigger-1"></i></a>
+                                        <a class="btn btn-xs btn-info" asp-area="Admin" asp-controller="Accounts" asp-action="Edit" asp-route-id="@item.AccountId"> <i class="ace-icon fa fa-pencil bigger-1"></i></a>
+                                        <a class="btn btn-xs btn-danger" asp-area="Admin" asp-controller="Accounts" asp-action="Delete" asp-route-id="@item.AccountId"> <i class="ace-icon fa fa-trash-o bigger-1"> </i></a>
+                                    </td>
+                                </tr>   
+                            }
+                            
+                       }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

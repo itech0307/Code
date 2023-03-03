@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+
+#nullable disable
+
+namespace WebLamDep.Models
+{
+    public partial class OrderDetail
+    {
+        public int OrderDetailId { get; set; }
+        public int? OrderId { get; set; }
+        public int? ProductId { get; set; }
+        public int? Quantity { get; set; }
+        public int? Discount { get; set; }
+        public decimal TotalMoney { get; set; }
+        public DateTime? ShipDate { get; set; }
+
+        public virtual Order Order { get; set; }
+    }
+}
