@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace WebLamDep.Models
 {
-    public partial class Account
+    // public partial class Account
     {
         public int AccountId { get; set; }
         public string FullName { get; set; }
